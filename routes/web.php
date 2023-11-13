@@ -28,3 +28,15 @@ Route::get('contact', function () {
 Route::get('product', [ProductController::class, 'index']);
 
 Route::get('product/{id}', [ProductController::class, 'show']);
+
+
+Route::get('posts/{post}', function($slug)
+{
+    $path = __DIR__."/../resources/posts/{$slug}.html" ;
+
+    echo $path;
+    $post = file_get_contents($path);
+
+    return view('post', ['post' => $post]);
+});
+

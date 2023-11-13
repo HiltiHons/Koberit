@@ -15,6 +15,6 @@ class ProductController extends Controller
     function show($id)
     {
         $productID = $id;
-        return view("showProduct", compact("$productID"));
+        return view("showProduct", compact("productID"));
     }
 }
