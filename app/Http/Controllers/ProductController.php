@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     function index()
     {
-        $productName = 'Webserver XL';
-        return view("product", compact("productName"));
+        $data = Product::whereRaw("price < 15 AND price >= 7")->orderby('price', 'desc')->get();
+        return view("product", compact("data"));
     }
 
     function show($id)

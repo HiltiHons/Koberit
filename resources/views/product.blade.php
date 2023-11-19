@@ -1,2 +1,6 @@
 <h1>Product Page</h1>
-<p>Product Name: {{$productName}}</p>
+@foreach ($data as $product)
+<h1>{{$product->name}}</h1>
+<p>{{$product->price}}</p>
+<p>{{$product->available}}</p>
+@endforeach
